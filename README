@@ -1,0 +1,22 @@
+Overview
+--------
+
+affine_registration is a quick-and-dirty set of scripts for automatically transforming a set of images such that a selected set of points is aligned as best as possible in the output.  
+
+Example Use Case
+----------------
+
+Say you have a bunch of pictures of a window that were all taken from slightly different angles. 
+
+- Run `./label.py /path/to/image/directory` and manually mark the four corners of the window frame in each picture (ensuring that you follow the same order each time).
+
+- Run `./transform.py /path/to/image/directory` to generate the transformed output images.  Each individual image will be transformed so as to try to have its registration points overlap with the corresponding registration points in the first image.
+ 
+NOTE: An affine transform is probably not sufficient to make all your images perfect, as it does not take into account camera optics or anything like that.  It was simply chosen as a simple, good-enough solution for many cases.
+
+Dependencies
+------------
+- numpy
+- scipy
+- matplotlib
+- Python Imaging Library (PIL)
